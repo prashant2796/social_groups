@@ -13,18 +13,28 @@
 <body>
 	<nav class="navbar mynav" role='navigation' id='navbar'>
 		<div class="container">
-			<a class = 'navbar-brand mynav' href="{% url 'home' %}">Star Social</a>
+			<a class = 'navbar-brand mynav' href="{% url 'home' %}">
+				<span><h2>Star Social</h2></span>
+			</a>
 
 			<ul class='nav navbar-nav navbar-right'>
 				{% if user.is_authenticated %}	
-					<li><a href="#">Post</a></li>
-					<li><a href="#">Groups</a></li>
-					<li><a href="#">Create Group</a></li>
-				  	<li><a href="{% url 'accounts:logout' %}">Log Out</a></li>
+					<li><a href="{% url 'posts:create' %}">
+						<span><h3>Post</h3></span></a></li>
+					<li><a href="{% url 'groups:all' %}">
+						<span><h3>Groups</h3></span></a></li>
+					<li><a href="{% url 'groups:create' %}">
+						<span><h3>Create group</h3></span></a></li>
+				  	<li><a href="{% url 'accounts:logout' %}">
+				  		<span><h3>Log Out</h3></span>
+				  	</a></li>
 				{% else %}
-					<li><a href="#">Groups</a></li>
-					<li><a href="{% url 'accounts:login' %}">Log In</a></li>
-					<li><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
+					<li><a href="{% url 'groups:all' %}">
+						<span><h3>Groups</h3></span></a></li>
+					<li><a href="{% url 'accounts:login' %}">
+						<span><h3>Log In</h3></span></a></li>
+					<li><a href="{% url 'accounts:signup' %}">
+						<span><h3>Sign Up</h3></span></a></li>
 				{% endif %}
 			</ul>
 		</div>
